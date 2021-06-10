@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
-  if (empty($_POST["day"]) || empty($_POST["month"]) || empty($_POST["month"])) {
+  if (empty($_POST["day"]) || empty($_POST["month"]) || empty($_POST["year"])) {
     $dateErr = "Please provide date";
   } else {
     $day = test_input($_POST["day"]);
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $dateErr = "Month should be valid mm: 1-12"; 
       $month = "";   
     }
-    if(!($year >= 1953 && $day <= 1998)){
+    if(!($year >= 1953 && $year <= 1998)){
       $dateErr = "Year should be valid yyyy: 1953-1998"; 
       $year = "";   
     }
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   if(empty($_POST['degree']))
   {
-   $degreeErr = "Atleast two degree must be checked";
+   $degreeErr = "Check two or more degrees";
   } else {
     $values = $_POST['degree'];
     $checkedDegrees = count($values);
